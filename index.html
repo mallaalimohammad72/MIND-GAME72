@@ -1,74 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+let deferredPrompt;
+window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    document.getElementById("installButton").style.display = "block";
+});
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mindgames.css">
-    <title>Mind Game By Ali 🎮</title>
-    <link rel="manifest" href="manifest.json">
-
-</head>
-
-<body>
-    <div id="header">
-        <img src="logo.png" alt="Game Logo" id="gameLogo">
-        <div id="socialButtons">
-            <a href="https://github.com/mallaalimohammad72" target="_blank">
-                <img src="github.png" alt="GitHub">
-            </a>
-            <a href="https://facebook.com/yourus" target="_blank">
-                <img src="facebook.png" alt="Facebook">
-            </a>
-            <a href="https://instagram.com/Kashur_kout72" target="_blank">
-                <img src="instagram.png" alt="Instagram">
-            </a>
-            <a href="https://x.com/ALIMMALLA72" target="_blank">
-                <img src="twitter.png" alt="Twitter">
-            </a>
-            <a href="https://www.linkedin.com/in/mallalimohammad72/" target="_blank">
-                <img src="linkedin.png" alt="Twitter">
-            </a>
-        </div>
-    </div>
-
-
-    <audio id="clickSound" src="click.mp3" preload="auto"></audio>
-    <audio id="gameOverSound" src="gameover.mp3" preload="auto"></audio>
-    <audio id="bgMusic" src="bgmusic.mp3" preload="auto" loop></audio>
-
-    <audio id="catSound" src="cat.wav" preload="auto"></audio>
-    <audio id="dogSound" src="dog.mp3" preload="auto"></audio>
-    <audio id="monkeySound" src="monkey.wav" preload="auto"></audio>
-    <audio id="frogSound" src="frog.mp3" preload="auto"></audio>
-    <audio id="pizzaSound" src="pizza.mp3" preload="auto"></audio>
-    <audio id="rocketSound" src="rocket.mp3" preload="auto"></audio>
-
-
-    <h1>Mind Game By Ali 🎮</h1>
-
-    <div id="startScreen">
-        <p>Select objects to tap:</p>
-        <select id="objectChoice" multiple>
-            <option value="🐱">Cat 🐱</option>
-            <option value="🐶">Dog 🐶</option>
-            <option value="🐵">Monkey 🐵</option>
-            <option value="🐸">Frog 🐸</option>
-            <option value="🍕">Pizza 🍕</option>
-            <option value="🚀">Rocket 🚀</option>
-        </select>
-        <br><br>
-        <button onclick="startGame()">Start Game</button>
-    </div>
-    <p id="score">Score: 0</p>
-    <p id="misses">Misses: 0</p>
-    <div id="gameArea"></div>
-    <p id="gameOver">GAME OVER! 😭</p>
-    <div id="gameOverButtons">
-        <button onclick="startGame()">Play Again</button>
-        <button onclick="goToHome()">Go to Home</button>
-    </div>
-    <script src="mindgeme.js"></script>
-</body>
-
-</html>
+function installApp() {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === "accepted") {
+                console.log("User installed the app");
+            }
+            deferredPrompt = null;
+        });
+    }
+}
