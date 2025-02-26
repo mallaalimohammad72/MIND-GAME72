@@ -91,10 +91,10 @@ function spawnObjects(selectedObjects) {
                 misses++;
                 document.getElementById("misses").innerText = "Misses: " + misses;
             }
-        }, 2000);
+        }, 1500);
 
         gameArea.appendChild(obj);
-    }, 1000);
+    }, 700);
 }
 
 // Function to reload the page and go home
