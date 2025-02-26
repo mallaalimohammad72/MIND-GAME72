@@ -101,3 +101,28 @@ function spawnObjects(selectedObjects) {
 function goToHome() {
     location.reload();
 }
+
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+        .then(() => console.log("Service Worker Registered"))
+        .catch((error) => console.log("Service Worker Registration Failed:", error));
+}
+
+let deferredPrompt;
+window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    document.getElementById("installButton").style.display = "block";
+});
+
+function installApp() {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === "accepted") {
+                console.log("User installed the app");
+            }
+            deferredPrompt = null;
+        });
+    }
+}
