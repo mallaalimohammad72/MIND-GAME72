@@ -1,0 +1,139 @@
+
+        body {
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(to bottom, #ffcc00, #ff6699);
+            color: white;
+            overflow: hidden;
+            user-select: none;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            color: #fff;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            font-size: 40px;
+        }
+        #gameArea {
+            position: relative;
+            width: 90vw;
+            height: 60vh;
+            border: 6px solid #fff;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            display: none;
+        }
+        .gameObject {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            font-size: 50px;
+            cursor: pointer;
+            animation: wiggle 1s infinite alternate ease-in-out;
+        }
+        @keyframes wiggle {
+            from { transform: rotate(-5deg); }
+            to { transform: rotate(5deg); }
+        }
+        #score, #misses {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        #gameOver {
+            display: none;
+            font-size: 40px;
+            color: yellow;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+        #gameOverButtons {
+            display: none;
+            margin-top: 20px;
+        }
+        #startScreen {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 20px;
+            background: #ffcc00;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 5px;
+        }
+        button:hover {
+            background: yellow;
+            transform: scale(1.1);
+        }
+    
+        /* social media icons */
+
+        #header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;  /* Proper alignment */
+            align-items: center;
+            padding: 10px 5%;  /* Adjusted padding for better spacing */
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box; /* Prevents unwanted extra width */
+        }
+        
+        #gameLogo {
+            height: 60px;
+            max-width: 20%; /* Prevents logo from taking too much space */
+        }
+        
+        #socialButtons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap; /* Ensures buttons wrap instead of overflowing */
+            max-width: 50%;
+            justify-content: flex-end; /* Keeps buttons aligned */
+        }
+        
+        #socialButtons a img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease-in-out;
+            /* border-radius: 50%; */
+        }
+        
+        #socialButtons a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        #socialButtons a img:hover {
+            transform: scale(1.2);
+        }
+        
+        @media screen and (max-width: 600px) {
+            #header {
+                flex-direction: column; /* Stacks logo and buttons on small screens */
+                align-items: center;
+                text-align: center;
+                padding: 10px;
+            }
+        
+            #socialButtons {
+                justify-content: center;
+                max-width: 100%;
+            }
+        }
+        
