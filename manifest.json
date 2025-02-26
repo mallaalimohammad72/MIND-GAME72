@@ -1,0 +1,22 @@
+{
+    "name": "Tap The Object 🎮",
+    "short_name": "Funny Game",
+    "description": "Tap the object is a fun game to test your brain and reflexes. Tap the object as fast as you can and beat your friends score!",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffcc00",
+    "theme_color": "#ffcc00",
+    "icons": [
+      {
+        "src": "icons/icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "logo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
