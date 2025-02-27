@@ -63,7 +63,7 @@ function spawnObjects(selectedObjects) {
             document.getElementById("gameOverButtons").style.display = "block";
             gameOverSound.play();
             bgMusic.pause();
-            speak("Game Over! You missed too many objects.");
+            // speak("Game Over! You missed too many objects.");
             gameArea.innerHTML = "";
             return;
         }
@@ -91,10 +91,10 @@ function spawnObjects(selectedObjects) {
                 misses++;
                 document.getElementById("misses").innerText = "Misses: " + misses;
             }
-        }, 1500);
+        }, 1000);
 
         gameArea.appendChild(obj);
-    }, 700);
+    }, 500);
 }
 
 // Function to reload the page and go home
@@ -126,3 +126,5 @@ function installApp() {
         });
     }
 }
+
+

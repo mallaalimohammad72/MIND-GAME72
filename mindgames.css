@@ -2,7 +2,7 @@
         body {
             text-align: center;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(to bottom, #ffcc00, #ff6699);
+            background: linear-gradient(to bottom, #ec4402, #b1003b);
             color: white;
             overflow: hidden;
             user-select: none;
@@ -13,25 +13,33 @@
             justify-content: center;
             align-items: center;
         }
+        body:hover{
+            background: linear-gradient(to bottom, #9d07e2, #311757);
+        }
         h1 {
-            color: #fff;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-            font-size: 40px;
+            color: #0099ff;
+            text-shadow: 8px 8px 5px rgba(4, 0, 255, 0.3);
+            font-size: 50px;
+            margin-top: 80px;
         }
         #gameArea {
             position: relative;
             width: 90vw;
-            height: 60vh;
+            height: 50vh;
             border: 6px solid #fff;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(241, 116, 116, 0.3);
             border-radius: 20px;
             overflow: hidden;
             display: none;
         }
+        #gameArea:hover{
+            background-color: #afefff;
+            border: 6px solid #130707;
+        }
         .gameObject {
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 200px;
+            height: 200px;
             font-size: 50px;
             cursor: pointer;
             animation: wiggle 1s infinite alternate ease-in-out;
@@ -41,8 +49,9 @@
             to { transform: rotate(5deg); }
         }
         #score, #misses {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
+            margin-top: -8px;
         }
         #gameOver {
             display: none;
@@ -56,8 +65,8 @@
             margin-top: 20px;
         }
         #startScreen {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
+            background: rgba(139, 50, 38, 0.5);
+            padding: 30px;
             border-radius: 15px;
         }
         button {
@@ -72,7 +81,7 @@
         }
         button:hover {
             background: yellow;
-            transform: scale(1.1);
+            transform: scale(1.3);
         }
     
         /* social media icons */
@@ -96,7 +105,14 @@
             height: 60px;
             max-width: 20%; /* Prevents logo from taking too much space */
         }
-        
+
+        #gameLogo:hover{
+            /* border: 5px solid rgb(104, 29, 29); */
+            transform: scale(5);
+            /* transition: transform 0.1s ease-in-out; */
+            margin-top: 80px;
+            margin-left: 100px;
+        }
         #socialButtons {
             display: flex;
             gap: 15px;
@@ -109,7 +125,7 @@
         #socialButtons a img {
             width: 35px;
             height: 35px;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.1s ease-in-out;
             /* border-radius: 50%; */
         }
         

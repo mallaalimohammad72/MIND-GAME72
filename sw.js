@@ -6,15 +6,14 @@ self.addEventListener("install", (event) => {
                 "style.css",
                 "script.js",
                 "manifest.json",
-                "cat.wav",
-                "dog.mp3",
-                "monkey.wav",
-                "frog.mp3",
-                "pizza.mp3",
-                "rocket.mp3",
-                "logo.png",
-                "logo.png"
-            ]);
+                "sounds/cat.wav",
+                "sounds/dog.mp3",
+                "sounds/monkey.wav",
+                "sounds/frog.mp3",
+                "sounds/pizza.mp3",
+                "sounds/rocket.mp3",
+                "images/logo.png"
+            ]).catch(error => console.log("Cache Error:", error));
         })
     );
 });
@@ -22,7 +21,9 @@ self.addEventListener("install", (event) => {
 self.addEventListener("fetch", (event) => {
     event.respondWith(
         caches.match(event.request).then((response) => {
-            return response || fetch(event.request);
+            return response || fetch(event.request).catch(() => {
+                return new Response("Offline: Resource Not Found", { status: 404 });
+            });
         })
     );
 });
